@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <video autoplay muted loop id="myVideo">
+        <source src="images/video.mp4" type="video/mp4">
+    </video>
+    <img id="logo" src="images/sw_logo_stacked-336c62367939.png">
+    
+    <div class="modal disnone">
+        <div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
+        <h3 id="name">Name</h1>
+        <div class= "pers-info">
+            <div>
+                <div>Год рождения:</div>
+                <div>Пол:</div>
+                <div>Список фильмов:</div>
+                <div>Родная планета:</div>
+                <div>Подвид(species):</div>
+            </div>
+            <div class= "pres-info-dyn">
+                <div id="birth-year">год рождения</div>
+                <div id="gender">пол</div>
+                <div id="films"> список фильмов;</div>
+                <div id="planet-people">родная планета;</div>
+                <div id="species">подвид (species)</div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="list-footer">
+        <div class="arrow-list-left arrow-list"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+        <div class="colum-list">
+        <div class= "list-footer-5">
+            <div><input type="button" value="1 Text"></div>
+            <div><input type="button" value="Biggs Darkelight"></div>
+            <div><input type="button" value="3 Text"></div>
+            <div><input type="button" value="4 Text"></div>
+            <div><input type="button" value="Biggs Darkelight"></div>
+        </div>
+        <div class="list-footer-5">
+            <div><input type="button" value="6 Text"></div>
+            <div><input type="button" value="7 Text"></div>
+            <div><input type="button" value="Biggs Darkelight"></div>
+            <div><input type="button" value="9 Text"></div>
+            <div><input type="button" value="10 Text"></div>
+        </div>
+        </div>
+        <div class="arrow-list-right arrow-list"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
