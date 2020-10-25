@@ -44,7 +44,7 @@ window.addEventListener('load', () => {
         }) 
     }
     
-    updateState("swapi.dev/api/people");
+    updateState("https://swapi.dev/api/people");
 
     buttonNext.addEventListener("click", () => {
         if (nextState !== null) {
