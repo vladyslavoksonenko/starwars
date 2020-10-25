@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
     
     
     function updateState(apiUrl) {
-        fetch(apiUrl)
+        fetch("https://swapi.dev/api/people")
         .then((respons) => {
             return respons.json();
         })
