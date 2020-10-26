@@ -3,21 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://vladyslavoksonenko.github.io/starwars.github.io/style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
-    <link rel="stylesheet" href="https://vladyslavoksonenko.github.io/starwars.github.io/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <video autoplay muted loop id="myVideo">
-        <source src="https://vladyslavoksonenko.github.io/starwars.github.io/images/video.mp4" type="video/mp4">
+        <source src="images/video.mp4" type="video/mp4">
     </video>
-    <img id="logo" src="https://vladyslavoksonenko.github.io/starwars.github.io/images/sw_logo_stacked-336c62367939.png">
+    <img id="logo" src="images/sw_logo_stacked-336c62367939.png">
     
     <div class="modal disnone">
         <div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
         <h3 id="name">Name</h1>
         <div class= "pers-info">
-            <div>
+            <table>
+                <tr>
+                    <td>Год рождения:</td>
+                    <td><div id="birth-year">год рождения</div></td>
+                </tr>
+                <tr>
+                    <td>Пол:</td>
+                    <td><div id="gender">пол</div></td>
+                </tr>
+                <tr>
+                    <td>Список фильмов:</td>
+                    <td><div id="films"> список фильмов;</div></td>
+                </tr>
+                <tr>
+                    <td>Родная планета:</td>
+                    <td><div id="planet-people">родная планета;</div></td>
+                </tr>
+                <tr>
+                    <td>Подвид(species):</td>
+                    <td><div id="species">подвид (species)</div></td>
+                </tr>
+            </table>
+            <!-- <div>
                 <div>Год рождения:</div>
                 <div>Пол:</div>
                 <div>Список фильмов:</div>
@@ -30,7 +52,7 @@
                 <div id="films"> список фильмов;</div>
                 <div id="planet-people">родная планета;</div>
                 <div id="species">подвид (species)</div>
-            </div>
+            </div> -->
         </div>
 
     </div>
@@ -55,6 +77,6 @@
         </div>
         <div class="arrow-list-right arrow-list"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
     </div>
-    <script src="https://vladyslavoksonenko.github.io/starwars.github.io/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

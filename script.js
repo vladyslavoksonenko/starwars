@@ -5,7 +5,6 @@ window.addEventListener('load', () => {
     const buttonPrev = document.querySelector(".arrow-list-left");
     const modalPeople = document.querySelector(".modal");
     const buttonClosed = document.querySelector(".close")
-    
     let nextState = "";
     let previousState = "";
 
@@ -28,7 +27,8 @@ window.addEventListener('load', () => {
     
     
     function updateState(apiUrl) {
-        fetch(apiUrl)
+        return new Promise((resolve, reject) => {
+            fetch(apiUrl)
         .then((respons) => {
             return respons.json();
         })
@@ -42,6 +42,8 @@ window.addEventListener('load', () => {
             console.log(error);
             console.log(apiUrl);   
         }) 
+        })
+        
     }
     
     updateState("https://swapi.dev/api/people");
@@ -62,7 +64,6 @@ window.addEventListener('load', () => {
     });
 
     buttonClosed.addEventListener("click", () => {
-        console.dir(buttonClosed);
         buttonClosed.parentElement.classList.add("disnone");
     });
     
@@ -77,7 +78,8 @@ window.addEventListener('load', () => {
     }
 
     function statePeoples(url) {
-        fetch(url)
+        return new Promise ((resolve, reject) => {
+            fetch(url)
         .then((respons) => {
              return respons.json();
         })
@@ -86,7 +88,7 @@ window.addEventListener('load', () => {
                 console.log(true);
             });
         })
-        
+        })    
     } 
 
     function modalShow(people) {
@@ -107,17 +109,31 @@ window.addEventListener('load', () => {
                     getFilms(people.films).then((data) => {
                         let strFilms = "";
                         for (let i = 0; i < data.length; i++) {
+                            console.log(i);
+                            console.log(strFilms)
                             strFilms += `<li>${data[i]}</li>`;
                         }
+                        console.log(strFilms)
                         modalFilms.innerHTML = strFilms;
                     })
-                    getPlanet(people.homeworld).then((data) => {
-                        modalPlanetPeople.innerHTML = data;
-                    });
-                    getSpecies(people.species).then((data) => {
-                        modalSpecies.innerHTML = data;
-                    });
-                    resolve();
+                    if (people.homeworld.length !== 0) {
+                        getPlanet(people.homeworld).then((data) => {
+                            modalPlanetPeople.innerHTML = data;
+                        });
+                    } else {
+                        modalPlanetPeople.innerHTML = "-"
+                    }
+                    if (people.species.length !== 0) {
+                        getSpecies(people.species).then((data) => {
+                            console.log(data);
+                            modalSpecies.innerHTML = data;
+                        });
+                        resolve();
+                    } else {
+                        modalSpecies.innerHTML = "-"
+                    }
+
+                    
         })
                             
     }
@@ -141,13 +157,18 @@ window.addEventListener('load', () => {
         })
     }
     function getFilms(filmsUrl) {
-        let arrFilms = [];
+        let arrFilms = [];  
         return new Promise((resolve, reject) => {     
-            filmsUrl.forEach((element) => {
+            filmsUrl.forEach((element, i) => {
             fetch(element).then((respons) => respons.json())
             .then((data) => {
                 arrFilms.push(data.title);
-                resolve(arrFilms);
+                if (i == filmsUrl.length - 1) {
+                    resolve(arrFilms);
+                    console.log(arrFilms);
+                }
+                
+                
             })   
         },);
         })       
