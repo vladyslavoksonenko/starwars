@@ -28,11 +28,12 @@ window.addEventListener('load', () => {
     
     function updateState(apiUrl) {
         return new Promise((resolve, reject) => {
-            fetch(apiUrl)
+            fetch(httpsReplace(apiUrl))
         .then((respons) => {
             return respons.json();
         })
         .then( (data) => {
+            
             addButtonValue(data);
             clickPeople(data);
             nextState = data.next;
@@ -44,6 +45,16 @@ window.addEventListener('load', () => {
         }) 
         })
         
+    }
+
+    function httpsReplace(url) {
+        if (url[4] !== "s"){
+            let httpsurl = url.replace("http", "https");
+            return httpsurl;
+        } else {
+            return url;
+        }
+         
     }
     
     updateState("https://swapi.dev/api/people");
