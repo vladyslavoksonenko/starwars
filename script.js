@@ -71,6 +71,7 @@ window.addEventListener('load', () => {
     function clickPeople(data) {
         for (let i = 0; i < buttonPeoples.length; i++) {
             buttonPeoples[i].addEventListener("click", () => {
+                buttonClosed.parentElement.classList.add("disnone");
                 let namePeoples = "https://swapi.dev/api/people/?search=" + buttonPeoples[i].value;
                 statePeoples(namePeoples);
             });
@@ -93,8 +94,7 @@ window.addEventListener('load', () => {
 
     function modalShow(people) {
         return new Promise ((resolve, reject) => {
-            
-            modalPeople.classList.remove("disnone");
+           
             const modalName = document.querySelector("#name");
             const modalBirthYear = document.querySelector("#birth-year");
             const modalGender = document.querySelector("#gender");
@@ -132,7 +132,10 @@ window.addEventListener('load', () => {
                     } else {
                         modalSpecies.innerHTML = "-"
                     }
-
+                    setTimeout(() => {
+                        modalPeople.classList.remove("disnone");
+                    }, 500);
+                    
                     
         })
                             

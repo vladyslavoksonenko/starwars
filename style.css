@@ -88,7 +88,7 @@ input:hover {
     color: #c7c7c7;
     position: fixed;
     top: 50%;
-    transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%) scale(1);
     left: 50%;
     color: rgb(255, 255, 255);
     background-color: rgb(41 41 41 / 81%);
@@ -97,16 +97,25 @@ input:hover {
     border-radius: 5px;
     height: 300px;
     width: 400px;
+    transition: all 0.7s;
+    
 }
+
+
+.disnone {
+    transition: all 0,7s;
+    opacity: 0;
+    transform: translateY(-50%) translateX(-50%) scale(0.2);
+      
+}
+
 
 .close {
     float: right;
     cursor: pointer;
 }
 
-.disnone {
-    display: none;
-}
+
 
 .null {
     color: red;
