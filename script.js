@@ -97,7 +97,6 @@ window.addEventListener('load', () => {
         })
         .then((data) => {
             modalShow(data.results[0]).then(() => {
-                
                 console.log(true);
                 modalPeople.classList.remove("disnone");
                 
@@ -142,11 +141,10 @@ window.addEventListener('load', () => {
                             console.log(data);
                             modalSpecies.innerHTML = data;
                         });
-                        resolve();
                     } else {
                         modalSpecies.innerHTML = "-"
-                    }
-                    500);
+                    };
+                    
                     
                     
         })
