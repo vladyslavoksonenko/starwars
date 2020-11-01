@@ -48,6 +48,7 @@ window.addEventListener('load', () => {
     }
 
     function httpsReplace(url) {
+        console.log(url);
         if (url[4] !== "s"){
             let httpsurl = url.replace("http", "https");
             return httpsurl;
@@ -97,8 +98,12 @@ window.addEventListener('load', () => {
         })
         .then((data) => {
             modalShow(data.results[0]).then(() => {
+
                 console.log(true);
-                modalPeople.classList.remove("disnone");
+                setTimeout(() => {
+                    modalPeople.classList.remove("disnone");
+                }, 500);
+                
                 
             });
         })
@@ -122,11 +127,9 @@ window.addEventListener('load', () => {
                     getFilms(people.films).then((data) => {
                         let strFilms = "";
                         for (let i = 0; i < data.length; i++) {
-                            console.log(i);
-                            console.log(strFilms)
                             strFilms += `<li>${data[i]}</li>`;
                         }
-                        console.log(strFilms)
+                        
                         modalFilms.innerHTML = strFilms;
                     })
                     if (people.homeworld.length !== 0) {
@@ -140,10 +143,11 @@ window.addEventListener('load', () => {
                         getSpecies(people.species).then((data) => {
                             console.log(data);
                             modalSpecies.innerHTML = data;
-                        });
+                        });                       
                     } else {
                         modalSpecies.innerHTML = "-"
-                    };
+                    }
+                    resolve();
                     
                     
                     
@@ -163,10 +167,13 @@ window.addEventListener('load', () => {
 
     function getSpecies(speciesUrl) {
         return new Promise((resolve, reject) => {
-            fetch(httpsReplace(speciesUrl)).then((respons) => respons.json())
+            speciesUrl.forEach((element) => {
+                fetch(httpsReplace(element)).then((respons) => respons.json())
             .then((data) => {
                 resolve(data.name);
             })
+            })
+            
         })
     }
     function getFilms(filmsUrl) {
@@ -178,7 +185,7 @@ window.addEventListener('load', () => {
                 arrFilms.push(data.title);
                 if (i == filmsUrl.length - 1) {
                     resolve(arrFilms);
-                    console.log(arrFilms);
+                    
                 }
                 
                 

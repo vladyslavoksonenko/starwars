@@ -97,13 +97,13 @@ input:hover {
     border-radius: 5px;
     height: 300px;
     width: 400px;
-    transition: all 0.7s;
+    transition: all 1s;
     
 }
 
 
 .disnone {
-    transition: all 0,7s;
+    transition: all 1s;
     opacity: 0;
     transform: translateY(-50%) translateX(-50%) scale(0.2);
       
