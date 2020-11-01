@@ -97,7 +97,10 @@ window.addEventListener('load', () => {
         })
         .then((data) => {
             modalShow(data.results[0]).then(() => {
+                
                 console.log(true);
+                modalPeople.classList.remove("disnone");
+                
             });
         })
         })    
@@ -143,9 +146,7 @@ window.addEventListener('load', () => {
                     } else {
                         modalSpecies.innerHTML = "-"
                     }
-                    setTimeout(() => {
-                        modalPeople.classList.remove("disnone");
-                    }, 500);
+                    500);
                     
                     
         })
