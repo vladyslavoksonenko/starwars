@@ -91,7 +91,7 @@ window.addEventListener('load', () => {
 
     function statePeoples(url) {
         return new Promise ((resolve, reject) => {
-            fetch(url)
+            fetch(httpsReplace(url))
         .then((respons) => {
              return respons.json();
         })
@@ -154,7 +154,7 @@ window.addEventListener('load', () => {
 
     function getPlanet(homeworldUrl) {
         return new Promise((resolve, reject) => {
-            fetch(homeworldUrl).then((respons) => respons.json())
+            fetch(httpsReplace(homeworldUrl)).then((respons) => respons.json())
             .then((data) => {
                 resolve(data.name);
             })
@@ -164,7 +164,7 @@ window.addEventListener('load', () => {
 
     function getSpecies(speciesUrl) {
         return new Promise((resolve, reject) => {
-            fetch(speciesUrl).then((respons) => respons.json())
+            fetch(httpsReplace(speciesUrl)).then((respons) => respons.json())
             .then((data) => {
                 resolve(data.name);
             })
@@ -174,7 +174,7 @@ window.addEventListener('load', () => {
         let arrFilms = [];  
         return new Promise((resolve, reject) => {     
             filmsUrl.forEach((element, i) => {
-            fetch(element).then((respons) => respons.json())
+            fetch(httpsReplace(element)).then((respons) => respons.json())
             .then((data) => {
                 arrFilms.push(data.title);
                 if (i == filmsUrl.length - 1) {
